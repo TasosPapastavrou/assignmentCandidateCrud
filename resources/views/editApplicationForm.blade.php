@@ -80,7 +80,7 @@ if(old('mobile'))
                     </div> 
                     @if($errors->has('email'))
                         <div id="validationServer03Feedback" class="invalid-feedback d-block">
-                            Field is empty!
+                        Field is empty Or the email not exists!
                         </div>
                     @endif
 
