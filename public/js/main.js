@@ -117,23 +117,21 @@ $(document).ready(function() {
 
 
 
-    $('#downloadBtn').on('click',function() {
+    $('#deleteBtn').on('click',function() {
         var id = $(this).attr('data-candidate-id'); // Replace with your actual file name
 
         $.ajax({
-            url: '/download-pdf/' + id,
+            url: '/delete-pdf/' + id,
             type: 'GET',
             success: function(response) {
-                var blob = new Blob([response], { type: 'application/pdf' });
-                var link = document.createElement('a');
-                link.href = window.URL.createObjectURL(blob);
-                link.download = 'CV.pdf';
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
-            },
-            error: function(xhr, status, error) {
-                console.error('Error retrieving PDF:', error);
+
+                if(response){
+                    $('#cv-field').css('display','none');
+                }
+                else{
+                    console.log("error")
+                }
+                
             }
         });
     });

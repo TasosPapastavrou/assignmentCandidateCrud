@@ -59,8 +59,10 @@ class Candidate extends Model
 
     public function deleteCV(){
 
-        if (file_exists(public_path($this->resume))) {
-            unlink(public_path($this->resume));
+        if($this->resume){
+            if (file_exists(public_path($this->resume))) {
+                unlink(public_path($this->resume));
+            }
         }
 
     }

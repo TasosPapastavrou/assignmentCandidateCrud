@@ -132,8 +132,15 @@ if(old('mobile'))
 
                             @if(!empty($resume))
 
-                                <div class="form-group mt-3">
-                                <a id="downloadBtn" data-candidate-id="{{$candidate->id}}">Download Your CV</a>
+                                <div class="form-group mt-3" id="cv-field">
+                                    <iframe height="400px" width="100%"   src="{{ asset($resume) }}"> </iframe>
+
+                                    <div class="d-flex justify-content-center mt-5">
+
+                                        <a id="deleteBtn" class="btn btn-danger" data-candidate-id="{{$candidate->id}}">Delete Your CV</a>
+
+                                    </div>
+                                     
                                 </div>
                             @endif
 

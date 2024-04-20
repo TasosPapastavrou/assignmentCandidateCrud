@@ -38,7 +38,7 @@ Route::get('/edit/candidate/{id}',[App\Http\Controllers\CandidateController::cla
 Route::post('/edit/candidate/update/{id}',[App\Http\Controllers\CandidateController::class,'editApplication'])->name('edit.candidates.update');
 
 
-Route::get('/download-pdf/{id}', [App\Http\Controllers\CandidateController::class,'downloadPdf'])->name('download.pdf');
+Route::get('/delete-pdf/{id}', [App\Http\Controllers\CandidateController::class,'deletePdf'])->name('delete.pdf');
 
 
 

@@ -179,7 +179,10 @@ class CandidateController extends Controller
         $updateRecord->email = $data['email']; 
         $updateRecord->mobile = $mobile; 
         $updateRecord->degrees_id = $data['degree-type']; 
+        
+        if($pdfFile)
         $updateRecord->resume = $updateRecord->saveCV($pdfFile); 
+        
         $updateRecord->jobAppliedFor = $AppliedJobName;
         $updateRecord->applicationDate = now();
         $updateRecord->save();  
@@ -256,17 +259,19 @@ class CandidateController extends Controller
     }
 
 
-    public function downloadPdf($id){
+    public function deletePdf($id){
 
             $candidate = Candidate::findOrFail($id);
 
-            $filePath = public_path($candidate->resume);
-
-            if (file_exists($filePath)) {
-                return response()->json(['filePath' => $filePath]);
-            } else {
-                abort(404, 'File not found');
+            if($candidate){
+                $candidate->deleteCV();
+                $candidate->resume = null;
+                $candidate->save();
+                return true;
+            }else{
+                return false;
             }
+           
 
     }
 }
