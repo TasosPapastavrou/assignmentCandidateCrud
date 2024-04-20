@@ -180,8 +180,11 @@ class CandidateController extends Controller
         $updateRecord->mobile = $mobile; 
         $updateRecord->degrees_id = $data['degree-type']; 
         
-        if($pdfFile)
-        $updateRecord->resume = $updateRecord->saveCV($pdfFile); 
+        if($pdfFile){
+            $updateRecord->deleteCV();
+            $updateRecord->resume = $updateRecord->saveCV($pdfFile); 
+        }
+      
         
         $updateRecord->jobAppliedFor = $AppliedJobName;
         $updateRecord->applicationDate = now();
