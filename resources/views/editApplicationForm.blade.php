@@ -19,23 +19,23 @@ $resume = $candidate->resume;
 $havePdf = false;
 
 
-if(old('degree-type'))
+if(old('degree-type') || $errors->has('degree-type'))
     $degreeType = old('degree-type');  
 
-if(old('job-type'))
+if(old('job-type') || $errors->has('job-type'))
     $jobType = old('job-type'); 
 
 
-if(old('lastName'))
+if(old('lastName') || $errors->has('lastName'))
     $lastname = old('lastName'); 
 
-if(old('firstName'))
+if(old('firstName') || $errors->has('firstName'))
     $firstName = old('firstName'); 
 
-if(old('email'))
+if(old('email') || $errors->has('email'))
     $email = old('email');   
 
-if(old('mobile'))
+if(old('mobile') || $errors->any())
     $mobile = old('mobile');   
 
 
@@ -167,7 +167,11 @@ if(old('mobile'))
                         </div>
                     @endif
 
-                    <button type="submit" class="btn btn-primary mt-5">Submit</button>
+                    <div class="d-flex justify-content-center mt-5">
+                        <button type="submit" class="btn btn-primary mt-5">Submit</button>
+                    </div>
+
+                     
 
                 </form>
             </div>

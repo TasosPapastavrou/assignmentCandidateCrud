@@ -155,7 +155,11 @@ if(old('mobile'))
                         </div>
                     @endif
 
-                    <button type="submit" class="btn btn-primary mt-5">Submit</button>
+                    
+
+                    <div class="d-flex justify-content-center mt-5">
+                        <button type="submit" class="btn btn-primary mt-5">Submit</button>
+                    </div>
 
                 </form>
             </div>
