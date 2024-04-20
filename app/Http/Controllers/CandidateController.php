@@ -25,7 +25,7 @@ class CandidateController extends Controller
         $isSelected = true;
 
         foreach($allJobs as $key => $job){  
-            if($job['text']==$AppliedJob || $job['id']==$AppliedJob){
+            if($job['id']==$AppliedJob){
                 $allJobs[$key]['selected'] = true;  
             }
         }

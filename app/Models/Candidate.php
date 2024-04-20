@@ -67,4 +67,21 @@ class Candidate extends Model
 
     }
 
+    public function getJobAppliedIs(){
+
+        $textJob = $this->jobAppliedFor;
+        $list = collect([ 
+            ['id'=>1,'text'=>'PHP Developer'],
+            ['id'=>2,'text'=>'JAVA Developer'],
+            ['id'=>3,'text'=>'PYTHON Developer'],
+            ['id'=>4,'text'=>'ERP Support'],
+            ['id'=>5,'text'=>'Sales'],
+            ['id'=>6,'text'=>'Technician'], 
+        ]);
+        $record = $list->where('text', $textJob)->first();
+
+        return $record['id'];
+
+    }
+
 }

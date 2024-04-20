@@ -10,7 +10,7 @@
 @php
 
 $degreeType = $candidate->degrees_id; 
-$jobType = $candidate->jobAppliedFor; 
+$jobType = $candidate->getJobAppliedIs(); 
 $lastname = $candidate->lastName;
 $firstName = $candidate->firstName;
 $email = $candidate->email;
