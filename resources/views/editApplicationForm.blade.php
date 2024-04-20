@@ -45,7 +45,7 @@ if(old('mobile'))
 
     <div class="row justify-content-md-center mt-5">
 
-            <div class="col-sm-12 col-12 col-md-4">
+            <div class="col-sm-12 col-12 col-md-4 col-xl-8">
                 <form action="{{route('edit.candidates.update',$candidate->id)}}" method="post" enctype="multipart/form-data" >
                     @csrf 
 
